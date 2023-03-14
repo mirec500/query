@@ -1,0 +1,1282 @@
+package cz.ais.sirael.framework.u3.gwtxmldto;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Objects;
+import cz.ais.sirael.framework.u3.*;
+import cz.ais.sirael.framework.u3.gwtxmldto.GwtXmlBase.*;
+import org.json.simple.*;
+import org.w3c.dom.Element;
+
+/**
+ * Modelova trida pro GslPolicyQuery.
+*/
+public class GwtXmlGslPolicyQuery implements GwtXmlSerializable, GwtXmlBuilderV2, java.io.Serializable {
+
+  /**
+   * Parser pro GwtXmlGslPolicyQuery
+  */
+  public static final GwtXmlParser<GwtXmlGslPolicyQuery> PARSER = new GwtXmlParser<GwtXmlGslPolicyQuery>(){
+
+    @Override
+    @Deprecated
+    public GwtXmlGslPolicyQuery parse(String text) {
+      Object objToParse = GwtXmlBase.fromXml(text);
+      GwtXmlGslPolicyQuery ret = GwtXmlGslPolicyQuery.parseGwtXmlGslPolicyQuery (objToParse);
+      return ret;
+    }
+
+    @Override
+    public GwtXmlGslPolicyQuery parseJson(String text) {
+      return fromJson(text);
+    }
+
+    @Override
+    public GwtXmlGslPolicyQuery parseXml(String text, DtoXmlVersion version) {
+      Objects.requireNonNull(version, "version");
+      switch (version) {
+        case XML_V1:
+          return fromElement(GwtXmlBase.parseXml(text));
+        case XML_V2:
+          return parseGwtXmlGslPolicyQueryV2(GwtXmlBase.parseXml(text));
+        default:
+          throw new UnsupportedOperationException("Unknown DtoXmlVersion" + version + "!");
+      }
+    }
+  };
+
+  /**
+   * Parser V2 pro GwtXmlGslPolicyQuery
+  */
+  public static final GwtXmlParserV2<GwtXmlGslPolicyQuery> PARSER_V2 = new GwtXmlParserV2<GwtXmlGslPolicyQuery>(){
+
+    @Override
+    public GwtXmlGslPolicyQuery parse(String text) {
+      Element elToParse = GwtXmlBase.parseXml(text);
+      GwtXmlGslPolicyQuery ret = GwtXmlGslPolicyQuery.parseGwtXmlGslPolicyQueryV2 (elToParse);
+      return ret;
+    }
+  };
+
+ /** XML tag pro GwtXmlGslPolicyQuery */
+  public static final String TAG = "xml-gsl-policy-query";
+  /** Nazev atributu PolicyId */
+  public static final String AN_POLICYID = "policyId";
+  /** Nazev atributu OriginalPolicyId */
+  public static final String AN_ORIGINALPOLICYID = "originalPolicyId";
+  /** Nazev atributu ProductCode */
+  public static final String AN_PRODUCTCODE = "productCode";
+  /** Nazev atributu ProductBranch */
+  public static final String AN_PRODUCTBRANCH = "productBranch";
+  /** Nazev atributu ProductGroup */
+  public static final String AN_PRODUCTGROUP = "productGroup";
+  /** Nazev atributu PartyCode */
+  public static final String AN_PARTYCODE = "partyCode";
+  /** Nazev atributu PartyAbbrev */
+  public static final String AN_PARTYABBREV = "partyAbbrev";
+  /** Nazev atributu PartyOrganizationId */
+  public static final String AN_PARTYORGANIZATIONID = "partyOrganizationId";
+  /** Nazev atributu PartyPersonalId */
+  public static final String AN_PARTYPERSONALID = "partyPersonalId";
+  /** Nazev atributu PartyPolicyholderOnly */
+  public static final String AN_PARTYPOLICYHOLDERONLY = "partyPolicyholderOnly";
+  /** Nazev atributu VehicleLicensePlate */
+  public static final String AN_VEHICLELICENSEPLATE = "vehicleLicensePlate";
+  /** Nazev atributu VehicleVinCode */
+  public static final String AN_VEHICLEVINCODE = "vehicleVinCode";
+  /** Nazev atributu AgreementDateFrom */
+  public static final String AN_AGREEMENTDATEFROM = "agreementDateFrom";
+  /** Nazev atributu AgreementDateTo */
+  public static final String AN_AGREEMENTDATETO = "agreementDateTo";
+  /** Nazev atributu PolicyState */
+  public static final String AN_POLICYSTATE = "policyState";
+  /** Nazev atributu Identifiers */
+  public static final String AN_IDENTIFIERS = "identifiers";
+  /** Nazev atributu PartyRoleId */
+  public static final String AN_PARTYROLEID = "partyRoleId";
+  /** Nazev atributu RiskId */
+  public static final String AN_RISKID = "riskId";
+
+  /** Atribut PolicyId. */
+  private String policyId = null;
+  /** Atribut OriginalPolicyId. */
+  private String originalPolicyId = null;
+  /** Atribut ProductCode. */
+  private String productCode = null;
+  /** Atribut ProductBranch. */
+  private String productBranch = null;
+  /** Atribut ProductGroup. */
+  private String productGroup = null;
+  /** Atribut PartyCode. */
+  private String partyCode = null;
+  /** Atribut PartyAbbrev. */
+  private String partyAbbrev = null;
+  /** Atribut PartyOrganizationId. */
+  private String partyOrganizationId = null;
+  /** Atribut PartyPersonalId. */
+  private String partyPersonalId = null;
+  /** Atribut PartyPolicyholderOnly. */
+  private Boolean partyPolicyholderOnly = null;
+  /** Atribut VehicleLicensePlate. */
+  private String vehicleLicensePlate = null;
+  /** Atribut VehicleVinCode. */
+  private String vehicleVinCode = null;
+  /** Atribut AgreementDateFrom. */
+  private Date agreementDateFrom = null;
+  /** Atribut AgreementDateTo. */
+  private Date agreementDateTo = null;
+  /** Atribut PolicyState. */
+  private List<String> policyState = new ArrayList<String>();
+  /** Atribut Identifiers. */
+  private List<GwtXmlPolicyIdentifier> identifiers = new ArrayList<GwtXmlPolicyIdentifier>();
+  /** Atribut PartyRoleId. */
+  private List<String> partyRoleId = new ArrayList<String>();
+  /** Atribut RiskId. */
+  private List<String> riskId = new ArrayList<String>();
+
+  /**
+   * Set metoda pro atribut PolicyId.
+   *
+   * @param _value hodnota.
+  */
+  public void setPolicyId (String _value) {
+    this.policyId = _value;
+  }
+
+  /**
+   * Get metoda pro atribut PolicyId.
+   *
+   * @return hodnota atributu.
+  */
+  public String getPolicyId() {
+    return this.policyId;
+  }
+
+  /**
+   * Set metoda pro atribut OriginalPolicyId.
+   *
+   * @param _value hodnota.
+  */
+  @Deprecated
+  public void setOriginalPolicyId (String _value) {
+    this.originalPolicyId = _value;
+  }
+
+  /**
+   * Get metoda pro atribut OriginalPolicyId.
+   *
+   * @return hodnota atributu.
+  */
+  @Deprecated
+  public String getOriginalPolicyId() {
+    return this.originalPolicyId;
+  }
+
+  /**
+   * Set metoda pro atribut ProductCode.
+   *
+   * @param _value hodnota.
+  */
+  public void setProductCode (String _value) {
+    this.productCode = _value;
+  }
+
+  /**
+   * Get metoda pro atribut ProductCode.
+   *
+   * @return hodnota atributu.
+  */
+  public String getProductCode() {
+    return this.productCode;
+  }
+
+  /**
+   * Set metoda pro atribut ProductBranch.
+   *
+   * @param _value hodnota.
+  */
+  public void setProductBranch (String _value) {
+    this.productBranch = _value;
+  }
+
+  /**
+   * Get metoda pro atribut ProductBranch.
+   *
+   * @return hodnota atributu.
+  */
+  public String getProductBranch() {
+    return this.productBranch;
+  }
+
+  /**
+   * Set metoda pro atribut ProductGroup.
+   *
+   * @param _value hodnota.
+  */
+  public void setProductGroup (String _value) {
+    this.productGroup = _value;
+  }
+
+  /**
+   * Get metoda pro atribut ProductGroup.
+   *
+   * @return hodnota atributu.
+  */
+  public String getProductGroup() {
+    return this.productGroup;
+  }
+
+  /**
+   * Set metoda pro atribut PartyCode.
+   *
+   * @param _value hodnota.
+  */
+  public void setPartyCode (String _value) {
+    this.partyCode = _value;
+  }
+
+  /**
+   * Get metoda pro atribut PartyCode.
+   *
+   * @return hodnota atributu.
+  */
+  public String getPartyCode() {
+    return this.partyCode;
+  }
+
+  /**
+   * Set metoda pro atribut PartyAbbrev.
+   *
+   * @param _value hodnota.
+  */
+  public void setPartyAbbrev (String _value) {
+    this.partyAbbrev = _value;
+  }
+
+  /**
+   * Get metoda pro atribut PartyAbbrev.
+   *
+   * @return hodnota atributu.
+  */
+  public String getPartyAbbrev() {
+    return this.partyAbbrev;
+  }
+
+  /**
+   * Set metoda pro atribut PartyOrganizationId.
+   *
+   * @param _value hodnota.
+  */
+  public void setPartyOrganizationId (String _value) {
+    this.partyOrganizationId = _value;
+  }
+
+  /**
+   * Get metoda pro atribut PartyOrganizationId.
+   *
+   * @return hodnota atributu.
+  */
+  public String getPartyOrganizationId() {
+    return this.partyOrganizationId;
+  }
+
+  /**
+   * Set metoda pro atribut PartyPersonalId.
+   *
+   * @param _value hodnota.
+  */
+  public void setPartyPersonalId (String _value) {
+    this.partyPersonalId = _value;
+  }
+
+  /**
+   * Get metoda pro atribut PartyPersonalId.
+   *
+   * @return hodnota atributu.
+  */
+  public String getPartyPersonalId() {
+    return this.partyPersonalId;
+  }
+
+  /**
+   * Set metoda pro atribut PartyPolicyholderOnly.
+   *
+   * @param _value hodnota.
+  */
+  @Deprecated
+  public void setPartyPolicyholderOnly (Boolean _value) {
+    this.partyPolicyholderOnly = _value;
+  }
+
+  /**
+   * Get metoda pro atribut PartyPolicyholderOnly.
+   *
+   * @return hodnota atributu.
+  */
+  @Deprecated
+  public Boolean getPartyPolicyholderOnly() {
+    return this.partyPolicyholderOnly;
+  }
+
+  /**
+   * Set metoda pro atribut VehicleLicensePlate.
+   *
+   * @param _value hodnota.
+  */
+  public void setVehicleLicensePlate (String _value) {
+    this.vehicleLicensePlate = _value;
+  }
+
+  /**
+   * Get metoda pro atribut VehicleLicensePlate.
+   *
+   * @return hodnota atributu.
+  */
+  public String getVehicleLicensePlate() {
+    return this.vehicleLicensePlate;
+  }
+
+  /**
+   * Set metoda pro atribut VehicleVinCode.
+   *
+   * @param _value hodnota.
+  */
+  public void setVehicleVinCode (String _value) {
+    this.vehicleVinCode = _value;
+  }
+
+  /**
+   * Get metoda pro atribut VehicleVinCode.
+   *
+   * @return hodnota atributu.
+  */
+  public String getVehicleVinCode() {
+    return this.vehicleVinCode;
+  }
+
+  /**
+   * Set metoda pro atribut AgreementDateFrom.
+   *
+   * @param _value hodnota.
+  */
+  public void setAgreementDateFrom (Date _value) {
+    this.agreementDateFrom = _value;
+  }
+
+  /**
+   * Get metoda pro atribut AgreementDateFrom.
+   *
+   * @return hodnota atributu.
+  */
+  public Date getAgreementDateFrom() {
+    return this.agreementDateFrom;
+  }
+
+  /**
+   * Set metoda pro atribut AgreementDateTo.
+   *
+   * @param _value hodnota.
+  */
+  public void setAgreementDateTo (Date _value) {
+    this.agreementDateTo = _value;
+  }
+
+  /**
+   * Get metoda pro atribut AgreementDateTo.
+   *
+   * @return hodnota atributu.
+  */
+  public Date getAgreementDateTo() {
+    return this.agreementDateTo;
+  }
+
+  /**
+   * Prida novou instanci tridy PolicyState do seznamu.
+   *
+   * @param _value instance.
+  */
+  public void addPolicyState (String _value) {
+    this.policyState.add (_value);
+  }
+
+  /**
+   * Odebere instanci tridy ze seznamu PolicyState.
+   *
+   * @param _value instance.
+  */
+  public void removePolicyState (String _value) {
+    this.policyState.remove (_value);
+  }
+
+  /**
+   * Get metoda pro atribut PolicyState.
+   *
+   * @return hodnota atributu.
+  */
+  public List<String> getPolicyStateArray() {
+    return this.policyState;
+  }
+
+  /**
+   * Prida novou instanci tridy Identifiers do seznamu.
+   *
+   * @param _value instance.
+  */
+  public void addIdentifiers (GwtXmlPolicyIdentifier _value) {
+    this.identifiers.add (_value);
+  }
+
+  /**
+   * Vytvori instanci vazaneho objektu, dosadi jej do vazby a vrati.
+   *
+   * @return instance.
+  */
+  public GwtXmlPolicyIdentifier addNewIdentifiers() {
+    GwtXmlPolicyIdentifier _result = new GwtXmlPolicyIdentifier();
+    this.addIdentifiers (_result);
+    return _result;
+  }
+
+  /**
+   * Odebere instanci tridy ze seznamu Identifiers.
+   *
+   * @param _value instance.
+  */
+  public void removeIdentifiers (GwtXmlPolicyIdentifier _value) {
+    this.identifiers.remove (_value);
+  }
+
+  /**
+   * Get metoda pro atribut Identifiers.
+   *
+   * @return hodnota atributu.
+  */
+  public List<GwtXmlPolicyIdentifier> getIdentifiersArray() {
+    return this.identifiers;
+  }
+
+  /**
+   * Prida novou instanci tridy PartyRoleId do seznamu.
+   *
+   * @param _value instance.
+  */
+  public void addPartyRoleId (String _value) {
+    this.partyRoleId.add (_value);
+  }
+
+  /**
+   * Odebere instanci tridy ze seznamu PartyRoleId.
+   *
+   * @param _value instance.
+  */
+  public void removePartyRoleId (String _value) {
+    this.partyRoleId.remove (_value);
+  }
+
+  /**
+   * Get metoda pro atribut PartyRoleId.
+   *
+   * @return hodnota atributu.
+  */
+  public List<String> getPartyRoleIdArray() {
+    return this.partyRoleId;
+  }
+
+  /**
+   * Prida novou instanci tridy RiskId do seznamu.
+   *
+   * @param _value instance.
+  */
+  public void addRiskId (String _value) {
+    this.riskId.add (_value);
+  }
+
+  /**
+   * Odebere instanci tridy ze seznamu RiskId.
+   *
+   * @param _value instance.
+  */
+  public void removeRiskId (String _value) {
+    this.riskId.remove (_value);
+  }
+
+  /**
+   * Get metoda pro atribut RiskId.
+   *
+   * @return hodnota atributu.
+  */
+  public List<String> getRiskIdArray() {
+    return this.riskId;
+  }
+
+
+  /**
+   * Metoda prevede instanci do XML.
+   *
+   * @return String xml.
+  */
+  public String toXml() {
+    StringBuilder _result = new StringBuilder();
+    _result.append ("<xml-gsl-policy-query>");
+      if (!GwtXmlBase.isNull (getPolicyId())) {
+        _result.append ("<policyId>");
+        _result.append (GwtXmlBase.xmlEscape (getPolicyId()));
+        _result.append ("</policyId>");
+      }
+      if (!GwtXmlBase.isNull (getOriginalPolicyId())) {
+        _result.append ("<originalPolicyId>");
+        _result.append (GwtXmlBase.xmlEscape (getOriginalPolicyId()));
+        _result.append ("</originalPolicyId>");
+      }
+      if (!GwtXmlBase.isNull (getProductCode())) {
+        _result.append ("<productCode>");
+        _result.append (GwtXmlBase.xmlEscape (getProductCode()));
+        _result.append ("</productCode>");
+      }
+      if (!GwtXmlBase.isNull (getProductBranch())) {
+        _result.append ("<productBranch>");
+        _result.append (GwtXmlBase.xmlEscape (getProductBranch()));
+        _result.append ("</productBranch>");
+      }
+      if (!GwtXmlBase.isNull (getProductGroup())) {
+        _result.append ("<productGroup>");
+        _result.append (GwtXmlBase.xmlEscape (getProductGroup()));
+        _result.append ("</productGroup>");
+      }
+      if (!GwtXmlBase.isNull (getPartyCode())) {
+        _result.append ("<partyCode>");
+        _result.append (GwtXmlBase.xmlEscape (getPartyCode()));
+        _result.append ("</partyCode>");
+      }
+      if (!GwtXmlBase.isNull (getPartyAbbrev())) {
+        _result.append ("<partyAbbrev>");
+        _result.append (GwtXmlBase.xmlEscape (getPartyAbbrev()));
+        _result.append ("</partyAbbrev>");
+      }
+      if (!GwtXmlBase.isNull (getPartyOrganizationId())) {
+        _result.append ("<partyOrganizationId>");
+        _result.append (GwtXmlBase.xmlEscape (getPartyOrganizationId()));
+        _result.append ("</partyOrganizationId>");
+      }
+      if (!GwtXmlBase.isNull (getPartyPersonalId())) {
+        _result.append ("<partyPersonalId>");
+        _result.append (GwtXmlBase.xmlEscape (getPartyPersonalId()));
+        _result.append ("</partyPersonalId>");
+      }
+      if (!GwtXmlBase.isNull (getPartyPolicyholderOnly())) {
+        _result.append ("<partyPolicyholderOnly>");
+        _result.append (getPartyPolicyholderOnly());
+        _result.append ("</partyPolicyholderOnly>");
+      }
+      if (!GwtXmlBase.isNull (getVehicleLicensePlate())) {
+        _result.append ("<vehicleLicensePlate>");
+        _result.append (GwtXmlBase.xmlEscape (getVehicleLicensePlate()));
+        _result.append ("</vehicleLicensePlate>");
+      }
+      if (!GwtXmlBase.isNull (getVehicleVinCode())) {
+        _result.append ("<vehicleVinCode>");
+        _result.append (GwtXmlBase.xmlEscape (getVehicleVinCode()));
+        _result.append ("</vehicleVinCode>");
+      }
+      if (!GwtXmlBase.isNull (getAgreementDateFrom())) {
+        _result.append ("<agreementDateFrom>");
+        _result.append (GwtXmlBase.formatDate (getAgreementDateFrom()));
+        _result.append ("</agreementDateFrom>");
+      }
+      if (!GwtXmlBase.isNull (getAgreementDateTo())) {
+        _result.append ("<agreementDateTo>");
+        _result.append (GwtXmlBase.formatDate (getAgreementDateTo()));
+        _result.append ("</agreementDateTo>");
+      }
+      for (String _val : policyState) {
+        if (!GwtXmlBase.isNull (_val)) {
+          _result.append ("<policyState>");
+          _result.append (GwtXmlBase.xmlEscape (_val));
+          _result.append ("</policyState>");
+        }
+      }
+      for (GwtXmlPolicyIdentifier _val : identifiers) {
+        if (!GwtXmlBase.isNull (_val)) {
+          _result.append ("<identifiers>");
+          _result.append (_val.toXml());
+          _result.append ("</identifiers>");
+        }
+      }
+      for (String _val : partyRoleId) {
+        if (!GwtXmlBase.isNull (_val)) {
+          _result.append ("<partyRoleId>");
+          _result.append (GwtXmlBase.xmlEscape (_val));
+          _result.append ("</partyRoleId>");
+        }
+      }
+      for (String _val : riskId) {
+        if (!GwtXmlBase.isNull (_val)) {
+          _result.append ("<riskId>");
+          _result.append (GwtXmlBase.xmlEscape (_val));
+          _result.append ("</riskId>");
+        }
+      }
+    _result.append ("</xml-gsl-policy-query>");
+    return _result.toString();
+  }
+
+  /**
+   * Metoda prevede instanci do XML V2.
+   *
+   * @return String xml.
+  */
+  @Override
+  public String toXmlV2() {
+    return toXmlV2("");
+  }
+
+  /**
+   * Metoda prevede instanci do XML V2.
+   * Do tagu vlozi predany retezec.
+   *
+   * @param atributy retezec s atributy.
+   * @return String xml.
+  */
+  @Override
+  public String toXmlV2 (String atributy) {
+    StringBuilder _result = new StringBuilder();
+    boolean _valIsNull;
+    _result.append ("<xml-gsl-policy-query");
+    if (!GwtXmlBase.isNull(atributy)) {
+      _result.append (" " + atributy);
+    }
+    _result.append (">");
+      if (!GwtXmlBase.isNull(getPolicyId())) {
+        _result.append ("<policyId>");
+        _result.append (GwtXmlBase.xmlEscape (getPolicyId()));
+        _result.append ("</policyId>");
+      }
+      if (!GwtXmlBase.isNull(getOriginalPolicyId())) {
+        _result.append ("<originalPolicyId>");
+        _result.append (GwtXmlBase.xmlEscape (getOriginalPolicyId()));
+        _result.append ("</originalPolicyId>");
+      }
+      if (!GwtXmlBase.isNull(getProductCode())) {
+        _result.append ("<productCode>");
+        _result.append (GwtXmlBase.xmlEscape (getProductCode()));
+        _result.append ("</productCode>");
+      }
+      if (!GwtXmlBase.isNull(getProductBranch())) {
+        _result.append ("<productBranch>");
+        _result.append (GwtXmlBase.xmlEscape (getProductBranch()));
+        _result.append ("</productBranch>");
+      }
+      if (!GwtXmlBase.isNull(getProductGroup())) {
+        _result.append ("<productGroup>");
+        _result.append (GwtXmlBase.xmlEscape (getProductGroup()));
+        _result.append ("</productGroup>");
+      }
+      if (!GwtXmlBase.isNull(getPartyCode())) {
+        _result.append ("<partyCode>");
+        _result.append (GwtXmlBase.xmlEscape (getPartyCode()));
+        _result.append ("</partyCode>");
+      }
+      if (!GwtXmlBase.isNull(getPartyAbbrev())) {
+        _result.append ("<partyAbbrev>");
+        _result.append (GwtXmlBase.xmlEscape (getPartyAbbrev()));
+        _result.append ("</partyAbbrev>");
+      }
+      if (!GwtXmlBase.isNull(getPartyOrganizationId())) {
+        _result.append ("<partyOrganizationId>");
+        _result.append (GwtXmlBase.xmlEscape (getPartyOrganizationId()));
+        _result.append ("</partyOrganizationId>");
+      }
+      if (!GwtXmlBase.isNull(getPartyPersonalId())) {
+        _result.append ("<partyPersonalId>");
+        _result.append (GwtXmlBase.xmlEscape (getPartyPersonalId()));
+        _result.append ("</partyPersonalId>");
+      }
+      if (getPartyPolicyholderOnly() != null) {
+        _result.append ("<partyPolicyholderOnly>");
+        _result.append (getPartyPolicyholderOnly());
+        _result.append ("</partyPolicyholderOnly>");
+      }
+      if (!GwtXmlBase.isNull(getVehicleLicensePlate())) {
+        _result.append ("<vehicleLicensePlate>");
+        _result.append (GwtXmlBase.xmlEscape (getVehicleLicensePlate()));
+        _result.append ("</vehicleLicensePlate>");
+      }
+      if (!GwtXmlBase.isNull(getVehicleVinCode())) {
+        _result.append ("<vehicleVinCode>");
+        _result.append (GwtXmlBase.xmlEscape (getVehicleVinCode()));
+        _result.append ("</vehicleVinCode>");
+      }
+      if (getAgreementDateFrom() != null) {
+        _result.append ("<agreementDateFrom>");
+        _result.append (GwtXmlBase.formatDateDen (getAgreementDateFrom()));
+        _result.append ("</agreementDateFrom>");
+      }
+      if (getAgreementDateTo() != null) {
+        _result.append ("<agreementDateTo>");
+        _result.append (GwtXmlBase.formatDateDen (getAgreementDateTo()));
+        _result.append ("</agreementDateTo>");
+      }
+      for (String _val : policyState) {
+        if (!GwtXmlBase.isNull(_val)) {
+          _result.append ("<policyState>");
+          _result.append (GwtXmlBase.xmlEscape (_val));
+          _result.append ("</policyState>");
+        }
+      }
+      for (GwtXmlPolicyIdentifier _val : identifiers) {
+        if (_val != null && !(_val.isNullV2())) {
+          _result.append ("<identifiers>");
+          _result.append (_val.toXmlV2());
+          _result.append ("</identifiers>");
+        }
+      }
+      for (String _val : partyRoleId) {
+        if (!GwtXmlBase.isNull(_val)) {
+          _result.append ("<partyRoleId>");
+          _result.append (GwtXmlBase.xmlEscape (_val));
+          _result.append ("</partyRoleId>");
+        }
+      }
+      for (String _val : riskId) {
+        if (!GwtXmlBase.isNull(_val)) {
+          _result.append ("<riskId>");
+          _result.append (GwtXmlBase.xmlEscape (_val));
+          _result.append ("</riskId>");
+        }
+      }
+    _result.append ("</xml-gsl-policy-query>");
+    return _result.toString();
+  }
+
+  /**
+   * Metoda zjisti, zda objekt je prazdny (obsahuje pouze defaultni informace).
+   *
+   * @return objekt je prazdny.
+  */
+  public boolean isNullV2() {
+      if (!GwtXmlBase.isNull(getPolicyId())) return false;
+      if (!GwtXmlBase.isNull(getOriginalPolicyId())) return false;
+      if (!GwtXmlBase.isNull(getProductCode())) return false;
+      if (!GwtXmlBase.isNull(getProductBranch())) return false;
+      if (!GwtXmlBase.isNull(getProductGroup())) return false;
+      if (!GwtXmlBase.isNull(getPartyCode())) return false;
+      if (!GwtXmlBase.isNull(getPartyAbbrev())) return false;
+      if (!GwtXmlBase.isNull(getPartyOrganizationId())) return false;
+      if (!GwtXmlBase.isNull(getPartyPersonalId())) return false;
+      if (getPartyPolicyholderOnly() != null) return false;
+      if (!GwtXmlBase.isNull(getVehicleLicensePlate())) return false;
+      if (!GwtXmlBase.isNull(getVehicleVinCode())) return false;
+      if (getAgreementDateFrom() != null) return false;
+      if (getAgreementDateTo() != null) return false;
+      for (String _val : policyState) {
+        if (!GwtXmlBase.isNull(_val)) return false;
+      }
+      for (GwtXmlPolicyIdentifier _val : identifiers) {
+        if (_val != null && !(_val.isNullV2())) return false;
+      }
+      for (String _val : partyRoleId) {
+        if (!GwtXmlBase.isNull(_val)) return false;
+      }
+      for (String _val : riskId) {
+        if (!GwtXmlBase.isNull(_val)) return false;
+      }
+    return true;
+  }
+
+  /**
+   * Vrati hodnotu atributu pro korenovy element do XML V2.
+   *
+   * @return hodnota atributu.
+  */
+  @Override
+  public String getXmlV2Atributy() {
+    return "xmlns=\"www.ais.cz\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"www.ais.cz XmlGslPolicyQuery.xsd\"";
+  }
+
+  /**
+   * Vrati nazev souboru s XSD pro XML V2.
+   *
+   * @return nazev souboru.
+  */
+  @Override
+  public String getXsdFileName() {
+    return "XmlGslPolicyQuery.xsd";
+  }
+
+    /**
+     * Metoda prevede instanci do JSON.
+     *
+     * @return String json.
+    */
+    @Override
+    public String toJson() {
+      return toJson(false, 0);
+    }
+
+    /**
+     * Metoda prevede instanci do vyrecneho JSON (vcetne null hodnot).
+     *
+     * @return String json.
+    */
+    @Override
+    public String toJsonVerbose(int depth) {
+      return toJson(true, depth);
+    }
+
+    private String toJson(boolean _verbose, int depth) {
+      boolean _prependComma = false;
+      StringBuilder _result = new StringBuilder();
+      _result.append ('{');
+      _prependComma = GwtXmlBase.jsonConstruct (AN_POLICYID, _prependComma, _verbose, false, false, depth + 1, getPolicyId(), _result);
+      _prependComma = GwtXmlBase.jsonConstruct (AN_ORIGINALPOLICYID, _prependComma, _verbose, false, false, depth + 1, getOriginalPolicyId(), _result);
+      _prependComma = GwtXmlBase.jsonConstruct (AN_PRODUCTCODE, _prependComma, _verbose, false, false, depth + 1, getProductCode(), _result);
+      _prependComma = GwtXmlBase.jsonConstruct (AN_PRODUCTBRANCH, _prependComma, _verbose, false, false, depth + 1, getProductBranch(), _result);
+      _prependComma = GwtXmlBase.jsonConstruct (AN_PRODUCTGROUP, _prependComma, _verbose, false, false, depth + 1, getProductGroup(), _result);
+      _prependComma = GwtXmlBase.jsonConstruct (AN_PARTYCODE, _prependComma, _verbose, false, false, depth + 1, getPartyCode(), _result);
+      _prependComma = GwtXmlBase.jsonConstruct (AN_PARTYABBREV, _prependComma, _verbose, false, false, depth + 1, getPartyAbbrev(), _result);
+      _prependComma = GwtXmlBase.jsonConstruct (AN_PARTYORGANIZATIONID, _prependComma, _verbose, false, false, depth + 1, getPartyOrganizationId(), _result);
+      _prependComma = GwtXmlBase.jsonConstruct (AN_PARTYPERSONALID, _prependComma, _verbose, false, false, depth + 1, getPartyPersonalId(), _result);
+      _prependComma = GwtXmlBase.jsonConstruct (AN_PARTYPOLICYHOLDERONLY, _prependComma, _verbose, false, false, depth + 1, getPartyPolicyholderOnly(), _result);
+      _prependComma = GwtXmlBase.jsonConstruct (AN_VEHICLELICENSEPLATE, _prependComma, _verbose, false, false, depth + 1, getVehicleLicensePlate(), _result);
+      _prependComma = GwtXmlBase.jsonConstruct (AN_VEHICLEVINCODE, _prependComma, _verbose, false, false, depth + 1, getVehicleVinCode(), _result);
+      _prependComma = GwtXmlBase.jsonConstructDate (AN_AGREEMENTDATEFROM, _prependComma, _verbose, false, true , depth + 1, getAgreementDateFrom(), _result);
+      _prependComma = GwtXmlBase.jsonConstructDate (AN_AGREEMENTDATETO, _prependComma, _verbose, false, true , depth + 1, getAgreementDateTo(), _result);
+      _prependComma = GwtXmlBase.jsonConstruct (AN_POLICYSTATE, _prependComma, _verbose, false, true, depth + 1, getPolicyStateArray(), _result);
+      _prependComma = GwtXmlBase.jsonConstruct (AN_IDENTIFIERS, _prependComma, _verbose, false, true, depth + 1, getIdentifiersArray(), _result);
+      _prependComma = GwtXmlBase.jsonConstruct (AN_PARTYROLEID, _prependComma, _verbose, false, true, depth + 1, getPartyRoleIdArray(), _result);
+      _prependComma = GwtXmlBase.jsonConstruct (AN_RISKID, _prependComma, _verbose, false, true, depth + 1, getRiskIdArray(), _result);
+    if (_verbose && _prependComma) {
+      _result.append ('\n');
+      GwtXmlBase.indent (_result, depth);
+    }
+    _result.append ('}');
+    return _result.toString();
+  }
+
+  /**
+   * Metoda prevede instanci do TV.
+   *
+   * @return String XML ve formatu TV.
+  */
+  public String toTvXml() {
+    StringBuilder _result = new StringBuilder();
+    _result.append ("<r>");
+    _result.append ("<v k=\"__className__\" s=\"GwtXmlGslPolicyQuery\"/>");
+      if (!GwtXmlBase.isNull (getPolicyId())) {
+        _result.append ("<v k=\"policyId\"");
+        _result.append (" s=\"").append (GwtXmlBase.xmlEscape (getPolicyId())).append ("\"/>");
+      } else {
+        _result.append ("<v k=\"policyId\" n=\"\"/>");
+      }
+      if (!GwtXmlBase.isNull (getOriginalPolicyId())) {
+        _result.append ("<v k=\"originalPolicyId\"");
+        _result.append (" s=\"").append (GwtXmlBase.xmlEscape (getOriginalPolicyId())).append ("\"/>");
+      } else {
+        _result.append ("<v k=\"originalPolicyId\" n=\"\"/>");
+      }
+      if (!GwtXmlBase.isNull (getProductCode())) {
+        _result.append ("<v k=\"productCode\"");
+        _result.append (" s=\"").append (GwtXmlBase.xmlEscape (getProductCode())).append ("\"/>");
+      } else {
+        _result.append ("<v k=\"productCode\" n=\"\"/>");
+      }
+      if (!GwtXmlBase.isNull (getProductBranch())) {
+        _result.append ("<v k=\"productBranch\"");
+        _result.append (" s=\"").append (GwtXmlBase.xmlEscape (getProductBranch())).append ("\"/>");
+      } else {
+        _result.append ("<v k=\"productBranch\" n=\"\"/>");
+      }
+      if (!GwtXmlBase.isNull (getProductGroup())) {
+        _result.append ("<v k=\"productGroup\"");
+        _result.append (" s=\"").append (GwtXmlBase.xmlEscape (getProductGroup())).append ("\"/>");
+      } else {
+        _result.append ("<v k=\"productGroup\" n=\"\"/>");
+      }
+      if (!GwtXmlBase.isNull (getPartyCode())) {
+        _result.append ("<v k=\"partyCode\"");
+        _result.append (" s=\"").append (GwtXmlBase.xmlEscape (getPartyCode())).append ("\"/>");
+      } else {
+        _result.append ("<v k=\"partyCode\" n=\"\"/>");
+      }
+      if (!GwtXmlBase.isNull (getPartyAbbrev())) {
+        _result.append ("<v k=\"partyAbbrev\"");
+        _result.append (" s=\"").append (GwtXmlBase.xmlEscape (getPartyAbbrev())).append ("\"/>");
+      } else {
+        _result.append ("<v k=\"partyAbbrev\" n=\"\"/>");
+      }
+      if (!GwtXmlBase.isNull (getPartyOrganizationId())) {
+        _result.append ("<v k=\"partyOrganizationId\"");
+        _result.append (" s=\"").append (GwtXmlBase.xmlEscape (getPartyOrganizationId())).append ("\"/>");
+      } else {
+        _result.append ("<v k=\"partyOrganizationId\" n=\"\"/>");
+      }
+      if (!GwtXmlBase.isNull (getPartyPersonalId())) {
+        _result.append ("<v k=\"partyPersonalId\"");
+        _result.append (" s=\"").append (GwtXmlBase.xmlEscape (getPartyPersonalId())).append ("\"/>");
+      } else {
+        _result.append ("<v k=\"partyPersonalId\" n=\"\"/>");
+      }
+      if (!GwtXmlBase.isNull (getPartyPolicyholderOnly())) {
+        _result.append ("<v k=\"partyPolicyholderOnly\"");
+        _result.append (" b=\"").append (getPartyPolicyholderOnly()).append ("\"/>");
+      } else {
+        _result.append ("<v k=\"partyPolicyholderOnly\" n=\"\"/>");
+      }
+      if (!GwtXmlBase.isNull (getVehicleLicensePlate())) {
+        _result.append ("<v k=\"vehicleLicensePlate\"");
+        _result.append (" s=\"").append (GwtXmlBase.xmlEscape (getVehicleLicensePlate())).append ("\"/>");
+      } else {
+        _result.append ("<v k=\"vehicleLicensePlate\" n=\"\"/>");
+      }
+      if (!GwtXmlBase.isNull (getVehicleVinCode())) {
+        _result.append ("<v k=\"vehicleVinCode\"");
+        _result.append (" s=\"").append (GwtXmlBase.xmlEscape (getVehicleVinCode())).append ("\"/>");
+      } else {
+        _result.append ("<v k=\"vehicleVinCode\" n=\"\"/>");
+      }
+      if (!GwtXmlBase.isNull (getAgreementDateFrom())) {
+        _result.append ("<v k=\"agreementDateFrom\"");
+        _result.append (" t=\"").append (GwtXmlBase.formatDate (getAgreementDateFrom())).append ("\"/>");
+      } else {
+        _result.append ("<v k=\"agreementDateFrom\" n=\"\"/>");
+      }
+      if (!GwtXmlBase.isNull (getAgreementDateTo())) {
+        _result.append ("<v k=\"agreementDateTo\"");
+        _result.append (" t=\"").append (GwtXmlBase.formatDate (getAgreementDateTo())).append ("\"/>");
+      } else {
+        _result.append ("<v k=\"agreementDateTo\" n=\"\"/>");
+      }
+      _result.append ("<v k=\"policyState\" h=\"\">");
+      _result.append ("<h>");
+      for (String _val : policyState) {
+        _result.append ("<r>");
+        if (!GwtXmlBase.isNull (_val)) {
+          _result.append ("<v k=\"_val\"");
+          _result.append (" s=\"").append (GwtXmlBase.xmlEscape (_val)).append ("\"/>");
+        } else {
+          _result.append ("<v k=\"_val\" n=\"\"/>");
+        }
+        _result.append ("</r>");
+      }
+      _result.append ("</h>");
+      _result.append ("</v>");
+      _result.append ("<v k=\"identifiers\" h=\"\">");
+      _result.append ("<h>");
+      for (GwtXmlPolicyIdentifier _val : identifiers) {
+        _result.append ("<r>");
+        if (!GwtXmlBase.isNull (_val)) {
+          _result.append ("<v k=\"_val\"");
+          _result.append (" h=\"\">");
+          _result.append ("<h>");
+          _result.append (_val.toTvXml());
+          _result.append ("</h>");
+          _result.append ("</v>");
+        } else {
+          _result.append ("<v k=\"_val\" n=\"\"/>");
+        }
+        _result.append ("</r>");
+      }
+      _result.append ("</h>");
+      _result.append ("</v>");
+      _result.append ("<v k=\"partyRoleId\" h=\"\">");
+      _result.append ("<h>");
+      for (String _val : partyRoleId) {
+        _result.append ("<r>");
+        if (!GwtXmlBase.isNull (_val)) {
+          _result.append ("<v k=\"_val\"");
+          _result.append (" s=\"").append (GwtXmlBase.xmlEscape (_val)).append ("\"/>");
+        } else {
+          _result.append ("<v k=\"_val\" n=\"\"/>");
+        }
+        _result.append ("</r>");
+      }
+      _result.append ("</h>");
+      _result.append ("</v>");
+      _result.append ("<v k=\"riskId\" h=\"\">");
+      _result.append ("<h>");
+      for (String _val : riskId) {
+        _result.append ("<r>");
+        if (!GwtXmlBase.isNull (_val)) {
+          _result.append ("<v k=\"_val\"");
+          _result.append (" s=\"").append (GwtXmlBase.xmlEscape (_val)).append ("\"/>");
+        } else {
+          _result.append ("<v k=\"_val\" n=\"\"/>");
+        }
+        _result.append ("</r>");
+      }
+      _result.append ("</h>");
+      _result.append ("</v>");
+    _result.append ("</r>");
+    return _result.toString();
+  }
+
+  /**
+   * Metoda vytvori instanci objektu z predaneho JSON retezce.
+   *
+   * @param json retezec.
+   * @return GwtXmlGslPolicyQuery instance.
+  */
+  public static GwtXmlGslPolicyQuery fromJson (String json) {
+    if (GwtXmlBase.isNull (json)) {
+      return null;
+    }
+
+    return fromOverlay ((JSONObject) JSONValue.parse (json));
+  }
+
+  /**
+   * Metoda naplni atributy predaneho GwtXmlGslPolicyQuery z JSONObject.
+   *
+   * @param _overlay rozparsovany JSON objekt.
+  */
+  static GwtXmlGslPolicyQuery fromOverlay (JSONObject _overlay) {
+    if (_overlay == null) {
+      return null;
+    }
+    GwtXmlGslPolicyQuery _result = new GwtXmlGslPolicyQuery();
+    _result.setPolicyId ((String) _overlay.get (AN_POLICYID));
+    _result.setOriginalPolicyId ((String) _overlay.get (AN_ORIGINALPOLICYID));
+    _result.setProductCode ((String) _overlay.get (AN_PRODUCTCODE));
+    _result.setProductBranch ((String) _overlay.get (AN_PRODUCTBRANCH));
+    _result.setProductGroup ((String) _overlay.get (AN_PRODUCTGROUP));
+    _result.setPartyCode ((String) _overlay.get (AN_PARTYCODE));
+    _result.setPartyAbbrev ((String) _overlay.get (AN_PARTYABBREV));
+    _result.setPartyOrganizationId ((String) _overlay.get (AN_PARTYORGANIZATIONID));
+    _result.setPartyPersonalId ((String) _overlay.get (AN_PARTYPERSONALID));
+    _result.setPartyPolicyholderOnly ((Boolean) _overlay.get (AN_PARTYPOLICYHOLDERONLY));
+    _result.setVehicleLicensePlate ((String) _overlay.get (AN_VEHICLELICENSEPLATE));
+    _result.setVehicleVinCode ((String) _overlay.get (AN_VEHICLEVINCODE));
+    _result.setAgreementDateFrom (GwtXmlBase.parseDate ((String) _overlay.get (AN_AGREEMENTDATEFROM)));
+    _result.setAgreementDateTo (GwtXmlBase.parseDate ((String) _overlay.get (AN_AGREEMENTDATETO)));
+    List<String> _lPolicyState = (List<String>) _overlay.get (AN_POLICYSTATE);
+    if (!GwtXmlBase.isNull (_lPolicyState)) {
+      for (String _s : _lPolicyState) {
+        _result.addPolicyState (_s);
+      }
+    }
+    List<JSONObject> _lIdentifiers = (List<JSONObject>) _overlay.get (AN_IDENTIFIERS);
+    if (!GwtXmlBase.isNull (_lIdentifiers)) {
+      for (JSONObject _o : _lIdentifiers) {
+        _result.addIdentifiers(GwtXmlPolicyIdentifier.fromOverlay (_o));
+      }
+    }
+    List<String> _lPartyRoleId = (List<String>) _overlay.get (AN_PARTYROLEID);
+    if (!GwtXmlBase.isNull (_lPartyRoleId)) {
+      for (String _s : _lPartyRoleId) {
+        _result.addPartyRoleId (_s);
+      }
+    }
+    List<String> _lRiskId = (List<String>) _overlay.get (AN_RISKID);
+    if (!GwtXmlBase.isNull (_lRiskId)) {
+      for (String _s : _lRiskId) {
+        _result.addRiskId (_s);
+      }
+    }
+    return _result;
+  }
+
+  /**
+   *
+   * @param _element Element pro rozparsovani
+   * @return instance
+  */
+  public static GwtXmlGslPolicyQuery fromElement (Element _element) {
+    String _tagName = _element.getTagName();
+    if (_tagName.equals ("t-v")) {
+      return GwtXmlGslPolicyQuery.parseGwtXmlGslPolicyQueryTvXml (GwtXmlBase.findChildElement (_element, "r"));
+    } else if (_tagName.equals ("r")) {
+      return GwtXmlGslPolicyQuery.parseGwtXmlGslPolicyQueryTvXml (_element);
+    } else {
+      GwtXmlGslPolicyQuery _result = new GwtXmlGslPolicyQuery();
+      for (Element _el : GwtXmlBase.findChildElements (_element, null)) {
+        _tagName = _el.getTagName();
+        if (_tagName.equals ("policyId")) {
+          _result.setPolicyId (GwtXmlBase.childNodesToString (_el));
+        } else if (_tagName.equals ("originalPolicyId")) {
+          _result.setOriginalPolicyId (GwtXmlBase.childNodesToString (_el));
+        } else if (_tagName.equals ("productCode")) {
+          _result.setProductCode (GwtXmlBase.childNodesToString (_el));
+        } else if (_tagName.equals ("productBranch")) {
+          _result.setProductBranch (GwtXmlBase.childNodesToString (_el));
+        } else if (_tagName.equals ("productGroup")) {
+          _result.setProductGroup (GwtXmlBase.childNodesToString (_el));
+        } else if (_tagName.equals ("partyCode")) {
+          _result.setPartyCode (GwtXmlBase.childNodesToString (_el));
+        } else if (_tagName.equals ("partyAbbrev")) {
+          _result.setPartyAbbrev (GwtXmlBase.childNodesToString (_el));
+        } else if (_tagName.equals ("partyOrganizationId")) {
+          _result.setPartyOrganizationId (GwtXmlBase.childNodesToString (_el));
+        } else if (_tagName.equals ("partyPersonalId")) {
+          _result.setPartyPersonalId (GwtXmlBase.childNodesToString (_el));
+        } else if (_tagName.equals ("partyPolicyholderOnly")) {
+          _result.setPartyPolicyholderOnly (GwtXmlBase.parseBoolean (GwtXmlBase.childNodesToString (_el)));
+        } else if (_tagName.equals ("vehicleLicensePlate")) {
+          _result.setVehicleLicensePlate (GwtXmlBase.childNodesToString (_el));
+        } else if (_tagName.equals ("vehicleVinCode")) {
+          _result.setVehicleVinCode (GwtXmlBase.childNodesToString (_el));
+        } else if (_tagName.equals ("agreementDateFrom")) {
+          _result.setAgreementDateFrom (GwtXmlBase.parseDate (GwtXmlBase.childNodesToString (_el)));
+        } else if (_tagName.equals ("agreementDateTo")) {
+          _result.setAgreementDateTo (GwtXmlBase.parseDate (GwtXmlBase.childNodesToString (_el)));
+        } else if (_tagName.equals ("policyState")) {
+          _result.addPolicyState (GwtXmlBase.childNodesToString (_el));
+        } else if (_tagName.equals ("identifiers")) {
+          _result.addIdentifiers (GwtXmlPolicyIdentifier.fromElement (GwtXmlBase.findChildElement (_el, "xml-policy-identifier")));
+        } else if (_tagName.equals ("partyRoleId")) {
+          _result.addPartyRoleId (GwtXmlBase.childNodesToString (_el));
+        } else if (_tagName.equals ("riskId")) {
+          _result.addRiskId (GwtXmlBase.childNodesToString (_el));
+        } else {
+          //throw new RestXmlParseException ("Neocekavany element \"" + _tagName + "\" v \"" + _element.getTagName() + "\"!");
+        }
+      }
+
+      return _result;
+    }
+  }
+
+  /**
+   * Metoda z predaneho elementu XML vytvori instanci tridy GwtXmlGslPolicyQuery.
+   *
+   * @param obj objekt pro rozparsovani. Muze byt bud XML Element nebo retezec JSONu.
+   * @return instance.
+  */
+  @Deprecated
+  public static GwtXmlGslPolicyQuery parseGwtXmlGslPolicyQuery (Object obj) {
+    if (obj instanceof Element) {
+      return fromElement ((Element) obj);
+    } else {
+      return fromJson ((String) obj);
+    }
+
+  }
+
+  /**
+   * Metoda z predaneho elementu XML V2 vytvori instanci tridy GwtXmlGslPolicyQuery.
+   *
+   * @param obj XML Element
+   * @return instance.
+  */
+  public static GwtXmlGslPolicyQuery parseGwtXmlGslPolicyQueryV2 (Object obj) {
+    Element _element = (Element) obj;
+    GwtXmlGslPolicyQuery _result = new GwtXmlGslPolicyQuery();
+    for (Element _el : GwtXmlBase.findChildElements (_element, null)) {
+      String _tagName = _el.getTagName();
+      if (_tagName.equals ("policyId")) {
+        _result.setPolicyId (GwtXmlBase.childNodesToString (_el));
+      } else if (_tagName.equals ("originalPolicyId")) {
+        _result.setOriginalPolicyId (GwtXmlBase.childNodesToString (_el));
+      } else if (_tagName.equals ("productCode")) {
+        _result.setProductCode (GwtXmlBase.childNodesToString (_el));
+      } else if (_tagName.equals ("productBranch")) {
+        _result.setProductBranch (GwtXmlBase.childNodesToString (_el));
+      } else if (_tagName.equals ("productGroup")) {
+        _result.setProductGroup (GwtXmlBase.childNodesToString (_el));
+      } else if (_tagName.equals ("partyCode")) {
+        _result.setPartyCode (GwtXmlBase.childNodesToString (_el));
+      } else if (_tagName.equals ("partyAbbrev")) {
+        _result.setPartyAbbrev (GwtXmlBase.childNodesToString (_el));
+      } else if (_tagName.equals ("partyOrganizationId")) {
+        _result.setPartyOrganizationId (GwtXmlBase.childNodesToString (_el));
+      } else if (_tagName.equals ("partyPersonalId")) {
+        _result.setPartyPersonalId (GwtXmlBase.childNodesToString (_el));
+      } else if (_tagName.equals ("partyPolicyholderOnly")) {
+        _result.setPartyPolicyholderOnly (GwtXmlBase.parseBoolean (GwtXmlBase.childNodesToString (_el)));
+      } else if (_tagName.equals ("vehicleLicensePlate")) {
+        _result.setVehicleLicensePlate (GwtXmlBase.childNodesToString (_el));
+      } else if (_tagName.equals ("vehicleVinCode")) {
+        _result.setVehicleVinCode (GwtXmlBase.childNodesToString (_el));
+      } else if (_tagName.equals ("agreementDateFrom")) {
+        _result.setAgreementDateFrom (GwtXmlBase.parseDateDen (GwtXmlBase.childNodesToString (_el)));
+      } else if (_tagName.equals ("agreementDateTo")) {
+        _result.setAgreementDateTo (GwtXmlBase.parseDateDen (GwtXmlBase.childNodesToString (_el)));
+      } else if (_tagName.equals ("policyState")) {
+        _result.addPolicyState (GwtXmlBase.childNodesToString (_el));
+      } else if (_tagName.equals ("identifiers")) {
+        _result.addIdentifiers (GwtXmlPolicyIdentifier.parseGwtXmlPolicyIdentifierV2 (GwtXmlBase.findChildElement (_el, "xml-policy-identifier")));
+      } else if (_tagName.equals ("partyRoleId")) {
+        _result.addPartyRoleId (GwtXmlBase.childNodesToString (_el));
+      } else if (_tagName.equals ("riskId")) {
+        _result.addRiskId (GwtXmlBase.childNodesToString (_el));
+      } else  {
+        throw new RestXmlParseException ("Neocekavany element \"" + _tagName + "\" v \"" + _element.getTagName() + "\"!");
+      }
+    }
+
+
+    return _result;
+  }
+
+  /**
+   * Metoda z predaneho elementu XML ve formatu tiskove vety vytvori instanci tridy 
+   * GwtXmlGslPolicyQuery.
+   *
+   * @param element XML element tiskove vety.
+   * @return instance.
+  */
+  public static GwtXmlGslPolicyQuery parseGwtXmlGslPolicyQueryTvXml (Element element) {
+    GwtXmlGslPolicyQuery _result = new GwtXmlGslPolicyQuery();
+    for (Element _el : GwtXmlBase.findChildElements (element, "v")) {
+      String _attrName = _el.getAttribute ("k");
+      if (_attrName.equals ("policyId")) {
+        _result.setPolicyId (_el.hasAttribute ("n") ? null : _el.getAttribute ("s"));
+      } else if (_attrName.equals ("originalPolicyId")) {
+        _result.setOriginalPolicyId (_el.hasAttribute ("n") ? null : _el.getAttribute ("s"));
+      } else if (_attrName.equals ("productCode")) {
+        _result.setProductCode (_el.hasAttribute ("n") ? null : _el.getAttribute ("s"));
+      } else if (_attrName.equals ("productBranch")) {
+        _result.setProductBranch (_el.hasAttribute ("n") ? null : _el.getAttribute ("s"));
+      } else if (_attrName.equals ("productGroup")) {
+        _result.setProductGroup (_el.hasAttribute ("n") ? null : _el.getAttribute ("s"));
+      } else if (_attrName.equals ("partyCode")) {
+        _result.setPartyCode (_el.hasAttribute ("n") ? null : _el.getAttribute ("s"));
+      } else if (_attrName.equals ("partyAbbrev")) {
+        _result.setPartyAbbrev (_el.hasAttribute ("n") ? null : _el.getAttribute ("s"));
+      } else if (_attrName.equals ("partyOrganizationId")) {
+        _result.setPartyOrganizationId (_el.hasAttribute ("n") ? null : _el.getAttribute ("s"));
+      } else if (_attrName.equals ("partyPersonalId")) {
+        _result.setPartyPersonalId (_el.hasAttribute ("n") ? null : _el.getAttribute ("s"));
+      } else if (_attrName.equals ("partyPolicyholderOnly")) {
+        _result.setPartyPolicyholderOnly (_el.hasAttribute ("n") ? null : GwtXmlBase.parseBoolean (_el.getAttribute ("b")));
+      } else if (_attrName.equals ("vehicleLicensePlate")) {
+        _result.setVehicleLicensePlate (_el.hasAttribute ("n") ? null : _el.getAttribute ("s"));
+      } else if (_attrName.equals ("vehicleVinCode")) {
+        _result.setVehicleVinCode (_el.hasAttribute ("n") ? null : _el.getAttribute ("s"));
+      } else if (_attrName.equals ("agreementDateFrom")) {
+        _result.setAgreementDateFrom (_el.hasAttribute ("n") ? null : GwtXmlBase.parseDate (_el.getAttribute ("t")));
+      } else if (_attrName.equals ("agreementDateTo")) {
+        _result.setAgreementDateTo (_el.hasAttribute ("n") ? null : GwtXmlBase.parseDate (_el.getAttribute ("t")));
+      } else if (_attrName.equals ("policyState")) {
+        for (Element _che : GwtXmlBase.findChildElements (GwtXmlBase.findChildElement (_el, "h"), "r")) {
+          _result.addPolicyState (GwtXmlBase.findChildElement (_che, "v").getAttribute ("s"));
+        }
+      } else if (_attrName.equals ("identifiers")) {
+        for (Element _che : GwtXmlBase.findChildElements (GwtXmlBase.findChildElement (_el, "h"), "r")) {
+          _result.addIdentifiers (GwtXmlPolicyIdentifier.fromElement (GwtXmlBase.findChildElement (GwtXmlBase.findChildElement (GwtXmlBase.findChildElement (_che, "v"), "h"), "r")));
+        }
+      } else if (_attrName.equals ("partyRoleId")) {
+        for (Element _che : GwtXmlBase.findChildElements (GwtXmlBase.findChildElement (_el, "h"), "r")) {
+          _result.addPartyRoleId (GwtXmlBase.findChildElement (_che, "v").getAttribute ("s"));
+        }
+      } else if (_attrName.equals ("riskId")) {
+        for (Element _che : GwtXmlBase.findChildElements (GwtXmlBase.findChildElement (_el, "h"), "r")) {
+          _result.addRiskId (GwtXmlBase.findChildElement (_che, "v").getAttribute ("s"));
+        }
+      } else {
+        //throw new RestXmlParseException ("Unexpected attribute name \"" + _attrName + "\" inside \"" + _element.getTagName() + "\"!");
+      }
+    }
+
+    return _result;
+  }
+
+  /**
+   * Konstruktor.
+  */
+  public GwtXmlGslPolicyQuery() {
+    super();
+  }
+}
